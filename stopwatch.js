@@ -67,3 +67,11 @@ function clockRunning(){
         (sec > 9 ? sec : "0" + sec) + "." + 
         (ms > 99 ? ms : ms > 9 ? "0" + ms : "00" + ms);
 };
+
+// each time lap is pressed, the current time must be stored in an array.  
+
+// each lap count then be appended to a table on the Dom 
+
+function lap(){ 
+	console.log(document.getElementById("display-area").innerHTML)
+};
