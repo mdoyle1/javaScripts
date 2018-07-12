@@ -2,6 +2,7 @@ let timeBegan = null;
 let stoppedDuration = null;
 let started = null;
 let timeStopped = null;
+let laps = [];
 
 function round(value, decimals) {
   return Number(Math.round(value+'e'+decimals)+'e-'+decimals);
@@ -69,9 +70,22 @@ function clockRunning(){
 };
 
 // each time lap is pressed, the current time must be stored in an array.  
-
 // each lap count then be appended to a table on the Dom 
 
-function lap(){ 
-	console.log(document.getElementById("display-area").innerHTML)
+
+function lapsUL(laps){
+	var list = document.createElement('ul');
+
+	for (var i = 0; i < laps.length; i++){
+		var item = document.createElement('li');
+		item.appendChild(document.createTextNode(laps[i]));
+		list.appendChild(item);
+	}
+	return list;
 };
+
+function lap(){ 
+	laps.push(document.getElementById("display-area").innerHTML)
+	document.getElementById('lapsList').appendChild(lapsUL(laps))
+};
+
