@@ -52,6 +52,10 @@ function reset() {
     timeBegan = null;
     timeStopped = null;
     document.getElementById("display-area").innerHTML = "00:00:00.000";
+    let lapReset=document.querySelectorAll('#lapsList ul');
+    for(var i=0; ul=lapReset[i]; i++) {
+    ul.parentNode.removeChild(ul);
+}
 }
 
 function clockRunning(){
@@ -73,6 +77,8 @@ function clockRunning(){
 // each lap count then be appended to a table on the Dom 
 
 
+//The following function prints the each lap and the previous laps using laps as an array.
+/*
 function lapsUL(laps){
 	var list = document.createElement('ul');
 
@@ -82,6 +88,16 @@ function lapsUL(laps){
 		list.appendChild(item);
 	}
 	return list;
+};
+*/
+
+function lapsUL(laps){
+    var list = document.createElement('ul');
+    var item = document.createElement('li');
+        item.appendChild(document.createTextNode(laps));
+        list.appendChild(item);
+        laps.pop();
+    return list;
 };
 
 function lap(){ 
