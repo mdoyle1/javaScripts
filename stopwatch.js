@@ -2,14 +2,13 @@ let timeBegan = null;
 let stoppedDuration = null;
 let started = null;
 let timeStopped = null;
-let laps = [];
+let laps = '';
 
 function round(value, decimals) {
   return Number(Math.round(value+'e'+decimals)+'e-'+decimals);
-}
+};
 
 function start() {
-    // If time began is = to null timeBegan = new time
 
     if (timeBegan === null) {
         timeBegan = new Date();
@@ -52,7 +51,7 @@ function reset() {
     timeBegan = null;
     timeStopped = null;
     document.getElementById("display-area").innerHTML = "00:00:00.000";
-    let lapReset=document.querySelectorAll('#lapsList ul');
+    let lapReset=document.querySelectorAll('#lapList li');
     for(var i=0; ul=lapReset[i]; i++) {
     ul.parentNode.removeChild(ul);
 }
@@ -73,35 +72,11 @@ function clockRunning(){
         (ms > 99 ? ms : ms > 9 ? "0" + ms : "00" + ms);
 };
 
-// each time lap is pressed, the current time must be stored in an array.  
-// each lap count then be appended to a table on the Dom 
-
-
-//The following function prints the each lap and the previous laps using laps as an array.
-/*
-function lapsUL(laps){
-	var list = document.createElement('ul');
-
-	for (var i = 0; i < laps.length; i++){
-		var item = document.createElement('li');
-		item.appendChild(document.createTextNode(laps[i]));
-		list.appendChild(item);
-	}
-	return list;
-};
-*/
-
-function lapsUL(laps){
-    var list = document.createElement('ul');
-    var item = document.createElement('li');
-        item.appendChild(document.createTextNode(laps));
-        list.appendChild(item);
-        laps.pop();
-    return list;
-};
-
 function lap(){ 
-	laps.push(document.getElementById("display-area").innerHTML)
-	document.getElementById('lapsList').appendChild(lapsUL(laps))
+    laps = document.getElementById("display-area").innerHTML;
+    let ul = document.getElementById("lapList");
+    let li = document.createElement('li');
+    li.appendChild(document.createTextNode(laps));
+	ul.appendChild(li);
 };
 
