@@ -1,9 +1,7 @@
 # JavaScript Stop Watch
-I'm working on this stopwatch script and looking to add new features.  
+JavaScript Stop Watch V1.0 
 
-Currently I have the stop-time printing to the console log in ms, seconds and minutes.
-The stop-time is the duration the stopwatch is stopped after initial start.
+Functions
+Start Stop Reset Lap
 
-Upcomming Features...
-* Laps:  Each time Lap is pressed the lap time will be recorded to a variable Lap 1, Lap 2, Lap 3 and so on.
-These variables will be seperate from the overall time.
+Lap: Each time lap is pressed the current time is written to the DOM.
